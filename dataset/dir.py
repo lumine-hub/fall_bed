@@ -13,9 +13,9 @@ class RadarDataset(Dataset):
     def __init__(self, data_txt=None, file_path_prefix=None, dir_list=None, max_points=100, max_frames=50, transform=None, method='mask', augment=False):
         """
         Args:
-            data_txt: Path to text file listing data files
+            data_txt: Path to text file listing data files 一个txt文件，里面每一行是一个csv文件的路径
             file_path_prefix: Prefix of the file path
-            dir_list: List of directories to read files from
+            dir_list: List of directories to read files from 一个列表，里面每一个元素是一个文件夹的名字(目录需要加上前缀file_path_prefix)，这个文件夹里面有很多csv文件
             max_points: Maximum number of points per frame
             max_frames: Maximum number of frames per sample
             transform: Optional transform to apply
@@ -30,6 +30,7 @@ class RadarDataset(Dataset):
         self.samples = []
         self.files = []
 
+        # 将每一个csv文件的路径加入到self.files中
         if data_txt:
             self.files = [line.strip() for line in open(data_txt, 'r')]
         elif file_path_prefix and dir_list:
@@ -64,6 +65,18 @@ class RadarDataset(Dataset):
 
         print(f"Dataset loaded. Class distribution: {self.class_counts}")
 
+    def __len__(self):
+        return len(self.files)
+
+    def __getitem__(self, idx):
+        filename = self.files[idx]
+        point_clouds, mask, label, frame_num = self.get_data_from_csv(filename)
+        point_clouds = torch.tensor(point_clouds, dtype=torch.float32)
+        mask = torch.tensor(mask, dtype=torch.float32)
+        frame_num = torch.tensor(frame_num, dtype=torch.int32)
+        return point_clouds, mask, label, frame_num
+
+
     def apply_augmentation(self, point_cloud):
         """Apply data augmentation to point cloud"""
         # Only augment with 50% probability
@@ -95,6 +108,7 @@ class RadarDataset(Dataset):
 
         return augmented
 
+    # 对每一帧数据进行归一化处理，point_cloud: (point_num, 5)
     def process_pointcloud(self, point_cloud):
         """使用 MinMaxScaler 归一化"""
         # 如果 point_cloud 为空，直接返回全零数组
@@ -117,14 +131,12 @@ class RadarDataset(Dataset):
         """Handle variable number of frames using specified method"""
         frame_num = len(point_clouds)
 
+        # 多余的帧数删除，不足的填充0，不需要mask
         if self.method == 'pad':
-            # Padding method: pad with zeros to max_frames
             if frame_num < self.max_frames:
-                # Create padding frames filled with zeros
                 pad_frames = np.zeros((self.max_frames - frame_num, self.max_points, 5))
                 point_clouds = np.concatenate([point_clouds, pad_frames])
             else:
-                # Truncate to max_frames
                 point_clouds = point_clouds[:self.max_frames]
 
             # No mask needed for simple padding
@@ -173,8 +185,7 @@ class RadarDataset(Dataset):
 
         return point_clouds, mask, frame_num
 
-    def __len__(self):
-        return len(self.files)
+
 
     def get_data_from_csv(self, filename):
         if filename.endswith('.csv'):
@@ -223,13 +234,6 @@ class RadarDataset(Dataset):
 
         return point_clouds, mask, label, frame_num
 
-    def __getitem__(self, idx):
-        filename = self.files[idx]
-        point_clouds, mask, label, frame_num = self.get_data_from_csv(filename)
-        point_clouds = torch.tensor(point_clouds, dtype=torch.float32)
-        mask = torch.tensor(mask, dtype=torch.float32)
-        frame_num = torch.tensor(frame_num, dtype=torch.int32)
-        return point_clouds, mask, label, frame_num
 
 # point_clouds: [frame_num, point_num, 5]
 # mask: (frame_num, )
