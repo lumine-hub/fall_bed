@@ -1,0 +1,16 @@
+Epoch 1 started...
+Train Epoch: 1 [0/456] Loss: 0.739808
+Train Epoch: 1 [160/456] Loss: 0.609775
+Train Epoch: 1 [320/456] Loss: 0.672006
+Epoch 1 finished in 33.24 seconds. Avg Loss: 0.630130
+Test set: Average loss: 0.0425, Accuracy: 99/115 (86.09%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9184    0.7895    0.8491        57
+           1     0.8182    0.9310    0.8710        58
+
+    accuracy                         0.8609       115
+   macro avg     0.8683    0.8603    0.8600       115
+weighted avg     0.8678    0.8609    0.8601       115
+

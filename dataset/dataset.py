@@ -10,7 +10,7 @@ import random
 
 
 class RadarDataset(Dataset):
-    def __init__(self, data_txt, max_points=100, max_frames=50, transform=None, method='mask', augment=False):
+    def __init__(self, data_txt, max_points=100, max_frames=40, transform=None, method='mask', augment=False):
         """
         Args:
             data_txt: Path to text file listing data files

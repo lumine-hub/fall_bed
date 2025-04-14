@@ -1,3 +1,4 @@
+import os
 import time
 import torch
 from torch import nn, optim
@@ -108,13 +109,13 @@ if __name__ == "__main__":
     txt_dir = None
     # txt_dir = "F:\\code\\radar\\fall_bed\\mmParse\\fall_bed\\cut_txt\\train_user1.txt"
     file_path_prefix = "F:\\code\\rada\\script\\origin_data_to_csv"
-    dir_list = ["fall_bed_data" + str(i) for i in range(3, 6)]
+    dir_list = ["fall_bed_data" + str(i) for i in range(1, 5)]
     print(dir_list)
     BATCH_SIZE = 16
     MAX_POINTS = 100
     MAX_FRAMES = 40
-    EPOCHS = 100
-    LEARNING_RATE = 0.00001
+    EPOCHS = 300
+    LEARNING_RATE = 0.0001
     PROCESSING_METHOD = 'mask'
 
     dataset = RadarDataset(txt_dir, file_path_prefix=file_path_prefix, dir_list=dir_list, max_points=MAX_POINTS,
@@ -132,28 +133,68 @@ if __name__ == "__main__":
     # 使用 CosineAnnealingLR 调整学习率
     scheduler = CosineAnnealingLR(optimizer, T_max=EPOCHS)
 
-    log_file = "training_log" + time.strftime("%Y%m%d_%H%M%S") + ".txt"
-    # 早停机制参数
-    patience = 3
+    # 检查点恢复逻辑
+    start_epoch = 1
     best_val_loss = float('inf')
     counter = 0
+    saved_checkpoints = []  # 用于跟踪保存的检查点
+    # str_time = time.strftime("%Y%m%d_%H%M%S")
+    str_time = "111"
 
-    for epoch in range(1, EPOCHS + 1):
+    # CHECKPOINT_PATH = 'F:\\code\\rada\\fall_bed\\enhanced_tcn_model_20250413_170855.pth'
+    CHECKPOINT_PATH = None
+    if CHECKPOINT_PATH and os.path.exists(CHECKPOINT_PATH):
+        print(f"Loading checkpoint from {CHECKPOINT_PATH}")
+        checkpoint = torch.load(CHECKPOINT_PATH)
+        model.load_state_dict(checkpoint['model_state_dict'])
+        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
+        start_epoch = checkpoint['epoch'] + 1
+        best_val_loss = checkpoint['best_val_loss']
+        counter = checkpoint['counter']
+        print(f"Resuming training from epoch {start_epoch}")
+
+    # 训练循环
+    log_file = "training_log" + time.strftime("%Y%m%d_%H%M%S") + ".txt"
+    patience = 3
+
+    for epoch in range(start_epoch, EPOCHS + 1):
         train_loss = train(model, device, train_loader, optimizer, criterion, epoch, PROCESSING_METHOD, log_file)
         val_loss = test(model, device, val_loader, criterion, log_file)
         scheduler.step()
+
+        # 保存检查点（每个epoch都保存）
+        timestamp = time.strftime("%Y%m%d_%H%M%S")
+        checkpoint_name = f"./checkpoint/{str_time}/checkpoint_epoch{epoch}_{timestamp}.pth"
+        torch.save({
+            'epoch': epoch,
+            'model_state_dict': model.state_dict(),
+            'optimizer_state_dict': optimizer.state_dict(),
+            'scheduler_state_dict': scheduler.state_dict(),
+            'best_val_loss': best_val_loss,
+            'counter': counter,
+            'train_loss': train_loss,
+            'val_loss': val_loss
+        }, checkpoint_name)
+
+        # 维护最多10个检查点
+        saved_checkpoints.append(checkpoint_name)
+        if len(saved_checkpoints) > 10:
+            oldest_checkpoint = saved_checkpoints.pop(0)
+            if os.path.exists(oldest_checkpoint):
+                os.remove(oldest_checkpoint)
 
         # 早停机制
         if val_loss < best_val_loss:
             best_val_loss = val_loss
             counter = 0
+            # 保存最佳模型
+            best_model_name = f"./best_model/{str_time}/best_model_epoch{epoch}_{timestamp}.pth"
+            torch.save(model.state_dict(), best_model_name)
         else:
             counter += 1
             if counter >= patience:
                 print(f"Early stopping at epoch {epoch}")
                 break
 
-    timestamp = time.strftime("%Y%m%d_%H%M%S")
-    model_name = f"enhanced_tcn_model_{timestamp}.pth"
-    torch.save(model.state_dict(), model_name)
-    print("模型保存成功。")
+    print("训练完成，最终模型已保存。")

@@ -1,0 +1,304 @@
+Epoch 1 started...
+Train Epoch: 1 [0/456] Loss: 0.673369
+Train Epoch: 1 [160/456] Loss: 0.679823
+Train Epoch: 1 [320/456] Loss: 0.506316
+Epoch 1 finished in 45.82 seconds. Avg Loss: 0.595846
+Test set: Average loss: 0.0425, Accuracy: 97/115 (84.35%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.8824    0.7895    0.8333        57
+           1     0.8125    0.8966    0.8525        58
+
+    accuracy                         0.8435       115
+   macro avg     0.8474    0.8430    0.8429       115
+weighted avg     0.8471    0.8435    0.8430       115
+
+Epoch 2 started...
+Train Epoch: 2 [0/456] Loss: 0.636454
+Train Epoch: 2 [160/456] Loss: 0.403899
+Train Epoch: 2 [320/456] Loss: 0.536523
+Epoch 2 finished in 33.61 seconds. Avg Loss: 0.464840
+Test set: Average loss: 0.0271, Accuracy: 94/115 (81.74%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.8333    0.7895    0.8108        57
+           1     0.8033    0.8448    0.8235        58
+
+    accuracy                         0.8174       115
+   macro avg     0.8183    0.8172    0.8172       115
+weighted avg     0.8182    0.8174    0.8172       115
+
+Epoch 3 started...
+Train Epoch: 3 [0/456] Loss: 0.486962
+Train Epoch: 3 [160/456] Loss: 0.380878
+Train Epoch: 3 [320/456] Loss: 0.226179
+Epoch 3 finished in 34.54 seconds. Avg Loss: 0.343543
+Test set: Average loss: 0.0209, Accuracy: 97/115 (84.35%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.8679    0.8070    0.8364        57
+           1     0.8226    0.8793    0.8500        58
+
+    accuracy                         0.8435       115
+   macro avg     0.8453    0.8432    0.8432       115
+weighted avg     0.8451    0.8435    0.8432       115
+
+Epoch 4 started...
+Train Epoch: 4 [0/456] Loss: 0.249350
+Train Epoch: 4 [160/456] Loss: 0.273087
+Train Epoch: 4 [320/456] Loss: 0.646557
+Epoch 4 finished in 28.26 seconds. Avg Loss: 0.253415
+Test set: Average loss: 0.0147, Accuracy: 104/115 (90.43%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9423    0.8596    0.8991        57
+           1     0.8730    0.9483    0.9091        58
+
+    accuracy                         0.9043       115
+   macro avg     0.9077    0.9040    0.9041       115
+weighted avg     0.9074    0.9043    0.9041       115
+
+Epoch 5 started...
+Train Epoch: 5 [0/456] Loss: 0.142365
+Train Epoch: 5 [160/456] Loss: 0.067195
+Train Epoch: 5 [320/456] Loss: 0.189949
+Epoch 5 finished in 28.89 seconds. Avg Loss: 0.153157
+Test set: Average loss: 0.0113, Accuracy: 108/115 (93.91%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9032    0.9825    0.9412        57
+           1     0.9811    0.8966    0.9369        58
+
+    accuracy                         0.9391       115
+   macro avg     0.9422    0.9395    0.9391       115
+weighted avg     0.9425    0.9391    0.9390       115
+
+Epoch 6 started...
+Train Epoch: 6 [0/456] Loss: 0.111065
+Train Epoch: 6 [160/456] Loss: 0.055423
+Train Epoch: 6 [320/456] Loss: 0.050604
+Epoch 6 finished in 29.54 seconds. Avg Loss: 0.107665
+Test set: Average loss: 0.0090, Accuracy: 109/115 (94.78%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9048    1.0000    0.9500        57
+           1     1.0000    0.8966    0.9455        58
+
+    accuracy                         0.9478       115
+   macro avg     0.9524    0.9483    0.9477       115
+weighted avg     0.9528    0.9478    0.9477       115
+
+Epoch 7 started...
+Train Epoch: 7 [0/456] Loss: 0.104969
+Train Epoch: 7 [160/456] Loss: 0.088304
+Train Epoch: 7 [320/456] Loss: 0.082320
+Epoch 7 finished in 27.66 seconds. Avg Loss: 0.098894
+Test set: Average loss: 0.0073, Accuracy: 110/115 (95.65%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9483    0.9649    0.9565        57
+           1     0.9649    0.9483    0.9565        58
+
+    accuracy                         0.9565       115
+   macro avg     0.9566    0.9566    0.9565       115
+weighted avg     0.9567    0.9565    0.9565       115
+
+Epoch 8 started...
+Train Epoch: 8 [0/456] Loss: 0.024273
+Train Epoch: 8 [160/456] Loss: 0.006278
+Train Epoch: 8 [320/456] Loss: 0.108177
+Epoch 8 finished in 29.70 seconds. Avg Loss: 0.052465
+Test set: Average loss: 0.0085, Accuracy: 110/115 (95.65%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9194    1.0000    0.9580        57
+           1     1.0000    0.9138    0.9550        58
+
+    accuracy                         0.9565       115
+   macro avg     0.9597    0.9569    0.9565       115
+weighted avg     0.9600    0.9565    0.9565       115
+
+Epoch 9 started...
+Train Epoch: 9 [0/456] Loss: 0.013477
+Train Epoch: 9 [160/456] Loss: 0.014922
+Train Epoch: 9 [320/456] Loss: 0.044684
+Epoch 9 finished in 27.10 seconds. Avg Loss: 0.032999
+Test set: Average loss: 0.0070, Accuracy: 111/115 (96.52%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9492    0.9825    0.9655        57
+           1     0.9821    0.9483    0.9649        58
+
+    accuracy                         0.9652       115
+   macro avg     0.9656    0.9654    0.9652       115
+weighted avg     0.9658    0.9652    0.9652       115
+
+Epoch 10 started...
+Train Epoch: 10 [0/456] Loss: 0.006109
+Train Epoch: 10 [160/456] Loss: 0.148957
+Train Epoch: 10 [320/456] Loss: 0.018278
+Epoch 10 finished in 29.18 seconds. Avg Loss: 0.052296
+Test set: Average loss: 0.0067, Accuracy: 111/115 (96.52%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9492    0.9825    0.9655        57
+           1     0.9821    0.9483    0.9649        58
+
+    accuracy                         0.9652       115
+   macro avg     0.9656    0.9654    0.9652       115
+weighted avg     0.9658    0.9652    0.9652       115
+
+Epoch 11 started...
+Train Epoch: 11 [0/456] Loss: 0.035626
+Train Epoch: 11 [160/456] Loss: 0.144139
+Train Epoch: 11 [320/456] Loss: 0.003432
+Epoch 11 finished in 29.92 seconds. Avg Loss: 0.031181
+Test set: Average loss: 0.0069, Accuracy: 111/115 (96.52%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9492    0.9825    0.9655        57
+           1     0.9821    0.9483    0.9649        58
+
+    accuracy                         0.9652       115
+   macro avg     0.9656    0.9654    0.9652       115
+weighted avg     0.9658    0.9652    0.9652       115
+
+Epoch 12 started...
+Train Epoch: 12 [0/456] Loss: 0.005518
+Train Epoch: 12 [160/456] Loss: 0.003484
+Train Epoch: 12 [320/456] Loss: 0.008876
+Epoch 12 finished in 28.86 seconds. Avg Loss: 0.030633
+Test set: Average loss: 0.0077, Accuracy: 111/115 (96.52%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9344    1.0000    0.9661        57
+           1     1.0000    0.9310    0.9643        58
+
+    accuracy                         0.9652       115
+   macro avg     0.9672    0.9655    0.9652       115
+weighted avg     0.9675    0.9652    0.9652       115
+
+Epoch 13 started...
+Train Epoch: 13 [0/456] Loss: 0.006614
+Train Epoch: 13 [160/456] Loss: 0.001362
+Train Epoch: 13 [320/456] Loss: 0.001716
+Epoch 13 finished in 27.75 seconds. Avg Loss: 0.014865
+Test set: Average loss: 0.0066, Accuracy: 111/115 (96.52%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9492    0.9825    0.9655        57
+           1     0.9821    0.9483    0.9649        58
+
+    accuracy                         0.9652       115
+   macro avg     0.9656    0.9654    0.9652       115
+weighted avg     0.9658    0.9652    0.9652       115
+
+Epoch 14 started...
+Train Epoch: 14 [0/456] Loss: 0.002083
+Train Epoch: 14 [160/456] Loss: 0.005392
+Train Epoch: 14 [320/456] Loss: 0.006638
+Epoch 14 finished in 29.73 seconds. Avg Loss: 0.019784
+Test set: Average loss: 0.0079, Accuracy: 111/115 (96.52%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9344    1.0000    0.9661        57
+           1     1.0000    0.9310    0.9643        58
+
+    accuracy                         0.9652       115
+   macro avg     0.9672    0.9655    0.9652       115
+weighted avg     0.9675    0.9652    0.9652       115
+
+Epoch 15 started...
+Train Epoch: 15 [0/456] Loss: 0.049457
+Train Epoch: 15 [160/456] Loss: 0.000842
+Train Epoch: 15 [320/456] Loss: 0.003104
+Epoch 15 finished in 27.81 seconds. Avg Loss: 0.014113
+Test set: Average loss: 0.0059, Accuracy: 112/115 (97.39%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9655    0.9825    0.9739        57
+           1     0.9825    0.9655    0.9739        58
+
+    accuracy                         0.9739       115
+   macro avg     0.9740    0.9740    0.9739       115
+weighted avg     0.9741    0.9739    0.9739       115
+
+Epoch 16 started...
+Train Epoch: 16 [0/456] Loss: 0.001749
+Train Epoch: 16 [160/456] Loss: 0.009246
+Train Epoch: 16 [320/456] Loss: 0.011748
+Epoch 16 finished in 26.84 seconds. Avg Loss: 0.011033
+Test set: Average loss: 0.0058, Accuracy: 112/115 (97.39%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9655    0.9825    0.9739        57
+           1     0.9825    0.9655    0.9739        58
+
+    accuracy                         0.9739       115
+   macro avg     0.9740    0.9740    0.9739       115
+weighted avg     0.9741    0.9739    0.9739       115
+
+Epoch 17 started...
+Train Epoch: 17 [0/456] Loss: 0.005874
+Train Epoch: 17 [160/456] Loss: 0.017315
+Train Epoch: 17 [320/456] Loss: 0.000720
+Epoch 17 finished in 27.86 seconds. Avg Loss: 0.007143
+Test set: Average loss: 0.0083, Accuracy: 111/115 (96.52%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9344    1.0000    0.9661        57
+           1     1.0000    0.9310    0.9643        58
+
+    accuracy                         0.9652       115
+   macro avg     0.9672    0.9655    0.9652       115
+weighted avg     0.9675    0.9652    0.9652       115
+
+Epoch 18 started...
+Train Epoch: 18 [0/456] Loss: 0.001757
+Train Epoch: 18 [160/456] Loss: 0.020057
+Train Epoch: 18 [320/456] Loss: 0.003039
+Epoch 18 finished in 27.62 seconds. Avg Loss: 0.003999
+Test set: Average loss: 0.0074, Accuracy: 111/115 (96.52%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9492    0.9825    0.9655        57
+           1     0.9821    0.9483    0.9649        58
+
+    accuracy                         0.9652       115
+   macro avg     0.9656    0.9654    0.9652       115
+weighted avg     0.9658    0.9652    0.9652       115
+
+Epoch 19 started...
+Train Epoch: 19 [0/456] Loss: 0.007771
+Train Epoch: 19 [160/456] Loss: 0.000950
+Train Epoch: 19 [320/456] Loss: 0.000634
+Epoch 19 finished in 28.90 seconds. Avg Loss: 0.003252
+Test set: Average loss: 0.0084, Accuracy: 110/115 (95.65%)
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9333    0.9825    0.9573        57
+           1     0.9818    0.9310    0.9558        58
+
+    accuracy                         0.9565       115
+   macro avg     0.9576    0.9567    0.9565       115
+weighted avg     0.9578    0.9565    0.9565       115
+
